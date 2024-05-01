@@ -1,0 +1,28 @@
+
+#forecast {
+    max-width: 400px;
+}
+
+#longForecast {
+    display: inline-block;
+}
+
+#box1 {
+    max-width: 200px;
+}
+
+#box2 {
+    max-width: 200px;
+}
+
+#box3 {
+    max-width: 200px;
+}
+
+#box4 {
+    max-width: 200px;
+}
+
+#box5 {
+    max-width: 200px;
+}
