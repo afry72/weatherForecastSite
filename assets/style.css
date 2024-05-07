@@ -1,28 +1,58 @@
 
 #forecast {
     max-width: 400px;
+    justify-content: right;
+    margin: auto;
+
 }
 
-#longForecast {
-    display: inline-block;
-}
 
 #box1 {
     max-width: 200px;
+    justify-content: left;
+    display: inline-block;
+    margin: auto;
+    margin-left: 2%;
+    margin-top: 5%;
 }
+
 
 #box2 {
     max-width: 200px;
+    justify-content: left;
+    display: inline-block;
+    margin: auto;
+    margin-left: 2%;
+    margin-top: 5%;
 }
+
 
 #box3 {
     max-width: 200px;
+    justify-content: left;
+    display: inline-block;
+    margin: auto;
+    margin-left: 2%;
+    margin-top: 5%;
 }
+
 
 #box4 {
     max-width: 200px;
+    justify-content: left;
+    display: inline-block;
+    margin: auto;
+    margin-left: 2%;
+    margin-top: 5%;
 }
+
 
 #box5 {
     max-width: 200px;
+    justify-content: left;
+    display: inline-block;
+    margin: auto;
+    margin-left: 2%;
+    margin-top: 5%;
 }
+

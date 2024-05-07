@@ -17,10 +17,10 @@
 
 <body>
         <div id="searchbox">
-            <form action="search" method="get">
+            <form>
                 <label for="search"></label>
-                <input type="text" id="locater" placeholder="Search Your Town">
-                <button type="submit">Search</button>
+                <input class="description" id="location" rows="1"> </input>
+                <button class="btn searchBtn bg-secondary text-white">Search</button>
             </form>
 
             <div id="searchHistory">
@@ -29,7 +29,7 @@
             
         </div>
     
-        <div id="forecast" class="container text-white bg-secondary">
+        <div id="forecast" class="container rounded text-white bg-secondary">
             <h3>Todays forecast for <p id="selectedLocation"></p></h3>
 
             <p id="Temperature">Temperature <p id="tempVar"></p></p>
@@ -42,7 +42,7 @@
                 <h3>5-Day Forecast</h3>
                 <div id="fiveDayBox">
 
-                    <div id="box1" class="container text-white bg-primary">
+                    <div id="box1" class="container rounded text-white bg-primary">
                         <h6 id="dateBox1"></h6>
                         <h1 id="weatherEmote1"></h1>
                         <p id="tempBox1">Temperature <p id="tempVar1"></p>
@@ -50,7 +50,7 @@
                         <p id="humBox1">Humidity <p id="humVar1"></p>
                     </div>
 
-                    <div id="box2" class="container text-white bg-primary">
+                    <div id="box2" class="container rounded text-white bg-primary">
                         <h6 id="dateBox2"></h6>
                         <h1 id="weatherEmote2"></h1>
                         <p id="tempBox2">Temperature <p id="tempVar2"></p>
@@ -58,7 +58,7 @@
                         <p id="humBox2">Humidity <p id="humVar2"></p>
                     </div>
 
-                    <div id="box3" class="container text-white bg-primary">
+                    <div id="box3" class="container rounded text-white bg-primary">
                         <h6 id="dateBox3"></h6>
                         <h1 id="weatherEmote3"></h1>
                         <p id="tempBox3">Temperature <p id="tempVar3"></p>
@@ -66,7 +66,7 @@
                         <p id="humBox3">Humidity <p id="humVar3"></p>
                     </div>
 
-                    <div id="box4" class="container text-white bg-primary">
+                    <div id="box4" class="container rounded text-white bg-primary">
                         <h6 id="dateBox4"></h6>
                         <h1 id="weatherEmote4"></h1>
                         <p id="tempBox4">Temperature <p id="tempVar4"></p>
@@ -74,7 +74,7 @@
                         <p id="humBox4">Humidity <p id="humVar4"></p>
                     </div>
 
-                    <div id="box5" class="container text-white bg-primary">
+                    <div id="box5" class="container rounded text-white bg-primary">
                         <h6 id="dateBox5"></h6>
                         <h1 id="weatherEmote5"></h1>
                         <p id="tempBox5">Temperature <p id="tempVar5"></p>
@@ -85,6 +85,7 @@
                 </div>
             </div>
         </div>
+
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script
@@ -93,6 +94,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="./Develop/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
+
 </html>
