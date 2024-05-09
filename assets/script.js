@@ -59,12 +59,34 @@ $(document).ready(function() {
            .then(function (locRes) {
       
             console.log(locRes);
+            //creating emojis for weather
+
+
+            //weather for today
+
+            var temperature = locRes.list[0].main.temp;
+            console.log (temperature);
+
+            var wind = locRes.list[0].wind.speed;
+            console.log(wind);
+
+            var humidity = locRes.list[0].main.humidity;
+            console.log(humidity);
+
+            var weather = locRes.list[0].weather[0].main;
+            console.log(weather);
+
+            $('#selectedLocation').text(searchQuery);
+            //$('#').text();
+            $('#tempVar').text(temperature);
+            $('#windVar').text(wind);
+            $('#humVar').text(humidity);
+
+            //
             
             })
-          });
+        });
     };
-    
-    //fetchWeather();
 });
 
 
