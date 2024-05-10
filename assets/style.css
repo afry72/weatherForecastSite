@@ -1,6 +1,7 @@
 
 #forecast {
-    max-width: 400px;
+    min-width: 400px;
+    max-width: 800px;
     justify-content: right;
     margin: auto;
 
@@ -61,4 +62,18 @@
     
 }
 
+#historyBox1 {
+    margin-bottom: 5px;
+}
 
+#historyBox2 {
+    margin-bottom: 5px;
+}
+
+#historyBox3 {
+    margin-bottom: 5px;
+}
+
+#historyBox4 {
+    margin-bottom: 5px;
+}

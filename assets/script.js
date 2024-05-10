@@ -36,6 +36,48 @@ $(document).ready(function() {
         fetchWeather(searchQuery);
     });
 
+    $(function() {
+      console.log("function");
+      var pulled = JSON.parse(localStorage.getItem('weatherHistory')) || [];
+      var searchQuery = pulled[pulled.length - 1];
+      console.log(searchQuery);
+
+      $('#historyBox4').text(pulled[0]);
+      $('#historyBox3').text(pulled[1]);
+      $('#historyBox2').text(pulled[2]);
+      $('#historyBox1').text(pulled[3]);
+
+      fetchWeather(searchQuery);
+    });
+
+    $("#historyBox1").on("click",function(event) {
+      event.preventDefault();
+      console.log("hisbutton pressed");
+      var searchQuery = $('#historyBox1').text();
+      fetchWeather(searchQuery);
+    });
+
+    $("#historyBox2").on("click",function(event) {
+      event.preventDefault();
+      console.log("hisbutton pressed");
+      var searchQuery = $('#historyBox2').text();
+      fetchWeather(searchQuery);
+    });
+
+    $("#historyBox3").on("click",function(event) {
+      event.preventDefault();
+      console.log("hisbutton pressed");
+      var searchQuery = $('#historyBox3').text();
+      fetchWeather(searchQuery);
+    });
+
+    $("#historyBox4").on("click",function(event) {
+      event.preventDefault();
+      console.log("hisbutton pressed");
+      var searchQuery = $('#historyBox4').text();
+      fetchWeather(searchQuery);
+    });
+
     function fetchWeather (searchQuery) {
         console.log(searchQuery);
     
@@ -327,6 +369,7 @@ $(document).ready(function() {
             })
         });
     };
+  
 });
 
 
