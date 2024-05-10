@@ -9,6 +9,30 @@ $(document).ready(function() {
         
         //save to local storage
 
+        //localStorage.removeItem('weatherHistory');
+
+
+        var searchHistory = JSON.parse(localStorage.getItem('weatherHistory')) || [];
+
+        if (searchHistory.length >= 4) {
+          searchHistory.shift();
+        };
+
+        searchHistory.push(searchQuery);
+
+        localStorage.setItem('weatherHistory', JSON.stringify(searchHistory));
+        
+        $('#historyBox4').text(searchHistory[0]);
+        $('#historyBox3').text(searchHistory[1]);
+        $('#historyBox2').text(searchHistory[2]);
+        $('#historyBox1').text(searchHistory[3]);
+
+        console.log(searchHistory[0]);
+        console.log(searchHistory[1]);
+        console.log(searchHistory[2]);
+        console.log(searchHistory[3]);
+
+
         fetchWeather(searchQuery);
     });
 
@@ -86,71 +110,176 @@ $(document).ready(function() {
             var humidity = locRes.list[0].main.humidity;
             console.log(humidity);
 
-            var weather = locRes.list[0].weather[0].main;
+            var weather = locRes.list[0].weather[0].id;
             console.log(weather);
 
 
             //day 2 weather
-            var temperature2 = locRes.list[0+8].main.temp;
+            var temperature2 = locRes.list[8].main.temp;
 
-            var wind2 = locRes.list[0+8].wind.speed;
+            var wind2 = locRes.list[8].wind.speed;
 
-            var humidity2 = locRes.list[0+8].main.humidity;
+            var humidity2 = locRes.list[8].main.humidity;
 
-            var weather2 = locRes.list[0+8].weather[0].main;
+            var weather2 = locRes.list[8].weather[0].id;
 
             //day 3 weather
-            var temperature3 = locRes.list[0+16].main.temp;
+            var temperature3 = locRes.list[16].main.temp;
 
-            var wind3 = locRes.list[0+16].wind.speed;
+            var wind3 = locRes.list[16].wind.speed;
 
-            var humidity3 = locRes.list[0+16].main.humidity;
+            var humidity3 = locRes.list[16].main.humidity;
 
-            var weather3 = locRes.list[0+16].weather[0].main;
+            var weather3 = locRes.list[16].weather[0].id;
 
             //day 4 weather
-            var temperature4 = locRes.list[0+24].main.temp;
+            var temperature4 = locRes.list[24].main.temp;
 
-            var wind4 = locRes.list[0+24].wind.speed;
+            var wind4 = locRes.list[24].wind.speed;
 
-            var humidity4 = locRes.list[0+24].main.humidity;
+            var humidity4 = locRes.list[24].main.humidity;
 
-            var weather4 = locRes.list[0+24].weather[0].main;
+            var weather4 = locRes.list[24].weather[0].id;
 
             //day 5 weather
-            var temperature5 = locRes.list[0+32].main.temp;
+            var temperature5 = locRes.list[32].main.temp;
 
-            var wind5 = locRes.list[0+32].wind.speed;
+            var wind5 = locRes.list[32].wind.speed;
 
-            var humidity5 = locRes.list[0+32].main.humidity;
+            var humidity5 = locRes.list[32].main.humidity;
 
-            var weather5 = locRes.list[0+32].weather[0].main;
+            var weather5 = locRes.list[32].weather[0].id;
 
             //setting up emojis
             
-            var emojiList = {
-              "clear sky": "☀️",
-              "few clouds": "🌤️",
-              "scattered clouds": "🌤️",
-              "broken clouds": "🌤️",
-              "shower rain": "🌧️",
-              "rain": "🌧️",
-              "thunderstorm": "⛈️",
-              "snow": "🌨️",
-              "mist": "🌫️",
+            //Day 1
+            if (weather >= 200 && weather < 300) {
+              var weatherEmoji = "⛈️";
+
+            } else if (weather >= 300 && weather < 400) {
+              var weatherEmoji = "🌧️";
+
+            } else if (weather >= 500 && weather < 600) {
+              var weatherEmoji = "🌧️";
+
+            } else if (weather >= 600 && weather < 700) {
+              var weatherEmoji = "🌨️";
+
+            } else if (weather >= 700 && weather < 800) {
+              var weatherEmoji = "🌫️";
+
+            } else if (weather == 800) {
+              var weatherEmoji = "☀️";
+
+            } else if (weather >= 800 && weather < 805) {
+              var weatherEmoji = "🌤️";
             };
 
-            if (weather in emojiList) {
-              return emojiList[weather];
+            //day 2
+            if (weather2 >= 200 && weather2 < 300) {
+              var weatherEmoji2 = "⛈️";
+
+            } else if (weather2 >= 300 && weather2 < 400) {
+              var weatherEmoji2 = "🌧️";
+
+            } else if (weather2 >= 500 && weather2 < 600) {
+              var weatherEmoji2 = "🌧️";
+
+            } else if (weather2 >= 600 && weather2 < 700) {
+              var weatherEmoji2 = "🌨️";
+
+            } else if (weather2 >= 700 && weather2 < 800) {
+              var weatherEmoji2 = "🌫️";
+
+            } else if (weather2 == 800) {
+              var weatherEmoji2 = "☀️";
+
+            } else if (weather2 >= 800 && weather2 < 805) {
+              var weatherEmoji2 = "🌤️";
             };
 
-            var weatherEmoji = weather.emojiList;
+            //day 3
+            if (weather3 >= 200 && weather3 < 300) {
+              var weatherEmoji3 = "⛈️";
+
+            } else if (weather3 >= 300 && weather3 < 400) {
+              var weatherEmoji3 = "🌧️";
+
+            } else if (weather3 >= 500 && weather3 < 600) {
+              var weatherEmoji3 = "🌧️";
+
+            } else if (weather3 >= 600 && weather3 < 700) {
+              var weatherEmoji3 = "🌨️";
+
+            } else if (weather3 >= 700 && weather3 < 800) {
+              var weatherEmoji3 = "🌫️";
+
+            } else if (weather3 == 800) {
+              var weatherEmoji3 = "☀️";
+
+            } else if (weather3 >= 800 && weather3 < 805) {
+              var weatherEmoji3 = "🌤️";
+            };
+
+            //day 4
+            if (weather4 >= 200 && weather4 < 300) {
+              var weatherEmoji4 = "⛈️";
+
+            } else if (weather4 >= 300 && weather4 < 400) {
+              var weatherEmoji4 = "🌧️";
+
+            } else if (weather4 >= 500 && weather4 < 600) {
+              var weatherEmoji4 = "🌧️";
+
+            } else if (weather4 >= 600 && weather4 < 700) {
+              var weatherEmoji4 = "🌨️";
+
+            } else if (weather4 >= 700 && weather4 < 800) {
+              var weatherEmoji4 = "🌫️";
+
+            } else if (weather4 == 800) {
+              var weatherEmoji4 = "☀️";
+
+            } else if (weather4 >= 800 && weather4 < 805) {
+              var weatherEmoji4 = "🌤️";
+            };
+
+            //day 5
+            if (weather5 >= 200 && weather5 < 300) {
+              var weatherEmoji5 = "⛈️";
+
+            } else if (weather5 >= 300 && weather5 < 400) {
+              var weatherEmoji5 = "🌧️";
+
+            } else if (weather5 >= 500 && weather5 < 600) {
+              var weatherEmoji5 = "🌧️";
+
+            } else if (weather5 >= 600 && weather5 < 700) {
+              var weatherEmoji5 = "🌨️";
+
+            } else if (weather5 >= 700 && weather5 < 800) {
+              var weatherEmoji5 = "🌫️";
+
+            } else if (weather5 == 800) {
+              var weatherEmoji5 = "☀️";
+
+            } else if (weather5 >= 800 && weather5 < 805) {
+              var weatherEmoji5 = "🌤️";
+            };
+
+
+            console.log(weatherEmoji);
+            console.log(weatherEmoji2);
+            console.log(weatherEmoji3);
+            console.log(weatherEmoji4);
+            console.log(weatherEmoji5);
+
             //modifying elements to add in all information
 
             //big box for today
 
             $('#selectedLocation').text(searchQuery);
-            $('#weatherEmote1').text(weatherEmoji);
+            $('#weatherEmote').text(weatherEmoji);
             $('#tempVar').text(temperature);
             $('#windVar').text(wind);
             $('#humVar').text(humidity);
@@ -158,7 +287,7 @@ $(document).ready(function() {
             // small box for today
 
             $('#dateBox1').text(dateDay1);
-            //$('#').text();
+            $('#weatherEmote1').text(weatherEmoji);
             $('#tempVar1').text(temperature);
             $('#windVar1').text(wind);
             $('#humVar1').text(humidity);
@@ -166,7 +295,7 @@ $(document).ready(function() {
             // day 2
 
             $('#dateBox2').text(dateDay2);
-            //$('#').text();
+            $('#weatherEmote2').text(weatherEmoji2);
             $('#tempVar2').text(temperature2);
             $('#windVar2').text(wind2);
             $('#humVar2').text(humidity2);
@@ -174,7 +303,7 @@ $(document).ready(function() {
             // day 3
 
             $('#dateBox3').text(dateDay3);
-            //$('#').text();
+            $('#weatherEmote3').text(weatherEmoji3);
             $('#tempVar3').text(temperature3);
             $('#windVar3').text(wind3);
             $('#humVar3').text(humidity3);
@@ -182,7 +311,7 @@ $(document).ready(function() {
             // day 4
 
             $('#dateBox4').text(dateDay4);
-            //$('#').text();
+            $('#weatherEmote4').text(weatherEmoji4);
             $('#tempVar4').text(temperature4);
             $('#windVar4').text(wind4);
             $('#humVar4').text(humidity4);
@@ -190,7 +319,7 @@ $(document).ready(function() {
             // day 5
 
             $('#dateBox5').text(dateDay5);
-            //$('#').text();
+            $('#weatherEmote5').text(weatherEmoji5);
             $('#tempVar5').text(temperature5);
             $('#windVar5').text(wind5);
             $('#humVar5').text(humidity5);
