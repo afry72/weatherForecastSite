@@ -1,5 +1,6 @@
-//create searchbox function and save the output data to local storage
+//function begins when the page is loaded, this allows the page to pull data from local storage and have information already brought up whenever you access the page
 $(document).ready(function() {
+    //the search button will pull data from the input box and input it into storage before sending it into the function
     $(".searchBtn").on("click",function(event) {
         event.preventDefault();
         console.log("button pressed");
@@ -8,9 +9,6 @@ $(document).ready(function() {
         console.log(searchQuery);
         
         //save to local storage
-
-        //localStorage.removeItem('weatherHistory');
-
 
         var searchHistory = JSON.parse(localStorage.getItem('weatherHistory')) || [];
 
@@ -36,6 +34,8 @@ $(document).ready(function() {
         fetchWeather(searchQuery);
     });
 
+    //this function pulls the latest input from local storage and auto loads it when page is started
+    //it also auto fills search history
     $(function() {
       console.log("function");
       var pulled = JSON.parse(localStorage.getItem('weatherHistory')) || [];
@@ -50,6 +50,9 @@ $(document).ready(function() {
       fetchWeather(searchQuery);
     });
 
+    //this allows locations to be selected from history instead of having to type it in again
+    //these functions will also not create new searches and flood the search history with copies of the same place
+    //like a handful of the functions in this site i hard coded it due to small amount of options
     $("#historyBox1").on("click",function(event) {
       event.preventDefault();
       console.log("hisbutton pressed");
@@ -78,11 +81,13 @@ $(document).ready(function() {
       fetchWeather(searchQuery);
     });
 
+    //this is the main function of the website, this function pulls geo data from the geocoder api and then inputs it into the openweathermap api
+    //a large chunk of this function is also hard coded but not just for ease of coding but its also way more stable puts way less strain on the browser
     function fetchWeather (searchQuery) {
         console.log(searchQuery);
-    
+      
         if (searchQuery) {
-            // getting location from parameters
+            // getting location from parameters through geocoder api
           locFetch = 'http://api.openweathermap.org/geo/1.0/direct?q='+searchQuery+'&limit=1&appid=21e1eb8bb7f77cea96ca6673d97cf6cb';
             
         };
@@ -98,8 +103,6 @@ $(document).ready(function() {
             return response.json();
           })
            .then(function (locRes) {
-            // write query to page so user knows what they are viewing
-            //resultTextEl.textContent = locRes.search.query; 
       
             console.log(locRes);
             
@@ -109,6 +112,7 @@ $(document).ready(function() {
 
             console.log(lat);
             console.log(lon);
+            //this takes the information from the geocoder and puts it through the actual openweather map so it can output the weather data
         
         if (lat && lon) {
             locFetch = 'https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&appid=21e1eb8bb7f77cea96ca6673d97cf6cb&units=imperial';
@@ -126,7 +130,7 @@ $(document).ready(function() {
       
             console.log(locRes);
 
-            //dayjs set up
+            //dayjs set up so i can provide dates on the 5 day forecast
             var dateDay1 = dayjs().format('D-M-YY');
         
             var dateDay2 = dayjs().add(1, 'day').format('D-M-YY');
@@ -141,7 +145,9 @@ $(document).ready(function() {
             console.log(dateDay1);
 
 
-            //weather for today
+            //weather for today, these vars dig through the location provided by openweathermaps to pull out the required information
+            //the data is provided within 40 different arrays seperated by 3 hours per data set 
+            //these vars take individual data from individual days and output them into the remaining 2 parts of the function
 
             var temperature = locRes.list[0].main.temp;
             console.log (temperature);
@@ -193,6 +199,9 @@ $(document).ready(function() {
             var weather5 = locRes.list[32].weather[0].id;
 
             //setting up emojis
+            //the main weather data provided by openweather api is seperated into 7 categories with individual codes, for example intense rain would be id'd as 503
+            //this can be simplified by its general category and then output as a emoji
+            //this part of the function takes the id number and checks to see which category its in and outputs the corresponding icon
             
             //Day 1
             if (weather >= 200 && weather < 300) {
@@ -317,6 +326,7 @@ $(document).ready(function() {
             console.log(weatherEmoji5);
 
             //modifying elements to add in all information
+            //this consolodates all of the information gathered thus far and inputs it into text areas in the dom
 
             //big box for today
 
