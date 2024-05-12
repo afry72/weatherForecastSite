@@ -114,6 +114,7 @@ $(document).ready(function() {
             console.log(lon);
             //this takes the information from the geocoder and puts it through the actual openweather map so it can output the weather data
         
+            console.log("test");
         if (lat && lon) {
             locFetch = 'https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&appid=21e1eb8bb7f77cea96ca6673d97cf6cb&units=imperial';
         };
