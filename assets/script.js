@@ -88,7 +88,7 @@ $(document).ready(function() {
       
         if (searchQuery) {
             // getting location from parameters through geocoder api
-          locFetch = 'http://api.openweathermap.org/geo/1.0/direct?q='+searchQuery+'&limit=1&appid=21e1eb8bb7f77cea96ca6673d97cf6cb';
+          locFetch = 'https://api.openweathermap.org/geo/1.0/direct?q='+searchQuery+'&limit=1&appid=21e1eb8bb7f77cea96ca6673d97cf6cb';
             
         };
     
