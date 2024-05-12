@@ -12,6 +12,8 @@ The Website will then sift through the arrays and pull out all the information i
 Temperature wind and humidity will be pulled from 5 of the arrays and be put into the dom along with the Dates
 the weather information is given in codes that have to be filtered into their correct icon and then put into the dom
 
+pictures are inside code example folder
+
 ## Challenges
 A massive challenge i ran into while coding this website was code its self, i had initially tried to use for loops to get most of the functions done relatively quickly
 but using for loops weirdly enough slowed down the website a considerable amount so i ended up just hard coding it so every element has its own function 
